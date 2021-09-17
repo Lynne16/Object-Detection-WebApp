@@ -1,9 +1,8 @@
 status="";
-bed="";
+laptop="";
 b_objects=[];
-
 function preload(){
-bed=loadImage("bed.jpg");
+laptop=loadImage("laptop.jpg");
 }
 
 function setup(){
@@ -17,7 +16,7 @@ function setup(){
 function modelLoaded(){
     console.log('Model Loaded!!!');
     status=true;
-    objectDetector.detect(bed,gotResult);
+    objectDetector.detect(laptop,gotResult);
 }
 
 function gotResult(error,results){
@@ -32,7 +31,7 @@ function gotResult(error,results){
 }
 
 function draw(){
-    image(bed,0,0,450,420);
+    image(laptop,0,0,450,420);
     if(status != ""){
         document.getElementById("status").innerHTML="Status: Object Detected";
         for(var i=0; i < b_objects.length; i++){
@@ -44,7 +43,7 @@ function draw(){
             stroke("#42046b");
             rect(b_objects[i].x,b_objects[i].y,b_objects[i].width,b_objects[i].height);
 
-            document.getElementById("info").innerHTML="There are multiple things in the background but the cocossd model has detected 1";
+            document.getElementById("info").innerHTML="The cocossd model has detected 2 things,cocossd got the it correct";
         }
     }
 }
